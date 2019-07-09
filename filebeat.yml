@@ -1,0 +1,31 @@
+
+filebeat.inputs:
+
+- type: log
+  enabled: true
+  paths:
+    - /opt/tomcat/logs/catalina.out
+
+filebeat.config.modules:
+  # Glob pattern for configuration loading
+  path: ${path.config}/modules.d/*.yml
+
+  # Set to true to enable config reloading
+  reload.enabled: false
+
+  # Period on which files under path should be checked for changes
+  #reload.period: 10s
+
+setup.template.settings:
+  index.number_of_shards: 1
+  #index.codec: best_compression
+  #_source.enabled: false
+
+output.logstash:
+  # The Logstash hosts
+  hosts: ["192.168.56.100:5044"]
+
+processors:
+  - add_host_metadata: ~
+  - add_cloud_metadata: ~
+
