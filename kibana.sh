@@ -31,7 +31,7 @@ cp /vagrant/filebeat.yml /etc/filebeat/
 
 sudo systemctl daemon reload
 
-serv=('elasticsearch' 'kibana' 'elasticsearch' )
+serv=('elasticsearch' 'kibana')
 for s in ${packets[@]}
 {
   enstart ${s}
