@@ -27,7 +27,6 @@ for p in ${packets[@]}
 
 cp /vagrant/kibana.yml /etc/kibana/
 cp /vagrant/elasticsearch.yml /etc/elasticsearch/
-cp /vagrant/filebeat.yml /etc/filebeat/
 
 sudo systemctl daemon reload
 
