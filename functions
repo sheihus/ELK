@@ -1,6 +1,3 @@
-bl='^[[:blank:]]*' # string begin with blank
-tl='.*' # tail
-
 
 enstart() # enable and start service
 {
@@ -11,16 +8,5 @@ enstart() # enable and start service
 yuminstall()
 {
   sudo yum install $1 -y
-}
-
-mygrep() # patch string in file (if nessesary),  if not sting found, add it
-{
-# pattern string file
-  if grep -q -E $1 $3;  # if exist pattern on the begin of string
-  then
-      sudo sed -i "s|$1|$2|" $AGENT_CONF_FILE # patch string
-    else
-      sudo echo $2 >> $3 # add string
-  fi
 }
 

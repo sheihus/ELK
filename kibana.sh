@@ -31,7 +31,7 @@ cp /vagrant/elasticsearch.yml /etc/elasticsearch/
 sudo systemctl daemon reload
 
 serv=('elasticsearch' 'kibana')
-for s in ${packets[@]}
+for s in ${serv[@]}
 {
   enstart ${s}
 }
